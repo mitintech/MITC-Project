@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table border="2">
+        <tr>
+            <td><label >praticle questions:- </label></td>
+            <td> <input type="text" name="practical_questions" ></td>
+        </tr>
+        <tr>
+            <td><label >showcode:- </label></td>
+            <td> <input type="file" name="showcode" ></td>
+        </tr>
+        <tr>
+            <td><label >output:- </label></td>
+            <td> <input type="file" name="output" ></td>
+        </tr>
+        <tr>
+            <td><label >sop:- </label><td>
+<!--            <td><input type="text" name="sop"></td>-->
+            <td> <select name="sop" id="sop">
+                     <option> --Select-- </option>
+                     {% for i in sop_insert %}
+                        <option value="{{i.sop_id}}">{{i.sop}}</option>
+                     {% endfor %}
+                 </select></td>
+        </tr>
+        <tr>
+            <td>group id:-</td>
+             <td>
+                 <select name="grp_id" id="grp_id">
+                     <option> --Select-- </option>
+                     {% for i in group_insert %}
+                        <option value="{{i.group_id}}">{{i.group_name}}</option>
+                     {% endfor %}
+                 </select>
+             </td>
+        </tr>
+        <tr>
+            <td>class id:-</td>
+             <td>
+                 <select name="cls_id" id="cls_id">
+                     <option> --Select-- </option>
+                     {% for i in class_insert %}
+                        <option value="{{i.class_id}}">{{i.class_name}}</option>
+                     {% endfor %}
+                 </select>
+             </td>
+        </tr>
+    </table>
+        <input type="submit" value="insert">
+
+</form>
+</body>
+</html>

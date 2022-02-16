@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="/sopupdate/{{practicaltables_update.sop_id}}/">
+    {%csrf_token%}
+    <tr>
+        <td>
+            <div border="2">
+                <input type="text" name="practicaltables_name" id="practicaltables_name" value="{{practicaltables_update.sop}}" placeholder="sop">
+            </div>
+        </td>
+
+
+        <td>
+                <label for="grp_id">group_id:</label>
+                <select name="grp_id" id="grp_id">
+                     <option>
+                     {% for i in group_insert %}
+                            {{i.grp_id}}
+                     {% endfor %}
+                    </option>
+                 </select>
+        </td>
+    </tr>
+    <input type="submit" name="submit" id="submit" value="submit">
+</form>
+</body>
+</html>

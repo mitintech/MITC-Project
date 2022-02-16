@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Student</title>
+  <style>
+          .submitrbtn:hover {
+            opacity: 1;
+                }
+
+                                .submitrbtn {
+                background-color: #333333;
+                color: #ffa500;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                opacity: 0.9;
+                }
+
+  </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MITC </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/frontpage/frontpage/">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="/logout_emp/logout_emp/"style="margin-left:850px;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+</head>
+<body>
+  <div class="container">
+    <h3 align="center"> Add Teacher </h3>
+    <hr>
+  <form align="center" method="POST" action="/teacherinsert/">
+    {% csrf_token %}
+
+
+
+  <label for="name"> Name :</label>
+  <input type="text" id="name" name="name" placeholder="enter  name" ><br><br>
+
+      <label for="email"> Email :</label>
+  <input type="text" id="email" name="email" placeholder="enter email" ><br><br>
+
+      <label for="mobile_number"> Mobile No. :</label>
+  <input type="text" id="mobile_number" name="mobile_number" placeholder="enter mobile number" ><br><br>
+
+      <label for="dob"> DOB :</label>
+  <input type="text" id="dob" name="dob" placeholder="enter dob" ><br><br>
+
+      <label for="password"> Password :</label>
+  <input type="text" id="password" name="password" placeholder="enter password" ><br><br>
+
+      <label for="reenter_password"> Reenter Password :</label>
+  <input type="text" id="reenter_password" name="reenter_password" placeholder="enter reenter password" ><br><br>
+
+
+  <button type="submit" class="submitrbtn">submit</button>
+</div>
+</form>
+
+</body>
+</html>
+

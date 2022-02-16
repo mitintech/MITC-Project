@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <thead class="thead-dark">
+    <tr>
+        <th>
+            ID
+        </th>
+
+        <th>
+            group
+        </th>
+        <th>
+            edit/delete
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for i in group_view%}
+    <tr>
+        <td>
+            {{i.group_id}}
+        </td>
+
+        <td>
+            {{i.group_name}}
+        </td>
+        <td>
+            <a href="/groupupdate/{{i.group_id}}">
+                edit
+            </a>
+            <a href="/groupdelete/{{i.group_id}}">
+                delete
+            </a>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+</body>
+</html>

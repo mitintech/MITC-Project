@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Result</title>
+  <style>
+          .submitrbtn:hover {
+            opacity: 1;
+                }
+
+                                .submitrbtn {
+                background-color: #333333;
+                color: #ffa500;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                opacity: 0.9;
+                }
+
+  </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MITC </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/frontpage/frontpage/">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="/logout_emp/logout_emp/"style="margin-left:850px;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+</head>
+<body>
+  <div class="container">
+    <h3 align="center"> Update Result </h3>
+    <hr>
+  <form align="center" method="POST" action="/questionupdate/{{question_update.question_id}}">
+    {% csrf_token %}
+
+
+
+   <label for="sr_number"> Sr. Number:</label>
+  <input type="text" id="sr_number" name="sr_number" value="{{question_update.sr_number}}" ><br><br>
+
+
+
+      <label for="stream_id">Streamid:</label>
+    <select class="form-control" type="text" id="stream_id" name="stream_id" style="width:200px;margin:0 auto;">
+{%for i in stream%}
+<option value="{{i.stream_id}}">{{i.stream_id}}</option>
+{%endfor%}
+</select><br>
+
+      <label for="class_id">Classid:</label>
+    <select class="form-control" type="text" id="class_id" name="class_id" style="width:200px;margin:0 auto;">
+{%for i in stream%}
+<option value="{{i.class_id}}">{{i.class_id}}</option>
+{%endfor%}
+</select><br>
+
+      <label for="subject_id">Subjectid:</label>
+    <select class="form-control" type="text" id="subject_id" name="subject_id" style="width:200px;margin:0 auto;">
+{%for i in stream%}
+<option value="{{i.subject_id}}">{{i.subject_id}}</option>
+{%endfor%}
+</select><br>
+
+       <label for="chapter_id">Chapterid:</label>
+    <select class="form-control" type="text" id="chapter_id" name="chapter_id" style="width:200px;margin:0 auto;">
+{%for i in stream%}
+<option value="{{i.chapter_id}}">{{i.chapter_id}}</option>
+{%endfor%}
+</select><br>
+
+      <label for="typesofquestion_id">Typesofquestionid:</label>
+    <select class="form-control" type="text" id="typesofquestion_id" name="typesofquestion_id" style="width:200px;margin:0 auto;">
+{%for i in stream%}
+<option value="{{i.typesofquestion_id}}">{{i.typesofquestion_id}}</option>
+{%endfor%}
+</select><br>
+
+  <label for="question"> Question :</label>
+  <input type="text" id="question" name="question" value="{{question_update.question}}" ><br><br>
+
+      <label for="option1"> Option1 :</label>
+  <input type="text" id="option1" name="option1" value="{{question_update.option1}}" ><br><br>
+
+      <label for="option2"> Option2 :</label>
+  <input type="text" id="option2" name="option2" value="{{question_update.option2}}"><br><br>
+
+      <label for="option3"> Option3 :</label>
+  <input type="text" id="option3" name="option3" value="{{question_update.option3}}" ><br><br>
+
+      <label for="option4"> Option4 :</label>
+  <input type="text" id="option4" name="option4" value="{{question_update.option4}}" ><br><br>
+
+      <label for="correct_answer"> Correct Answer :</label>
+  <input type="text" id="correct_answer" name="correct_answer" value="{{question_update.correct_answer}}" ><br><br>
+
+      <label for="description"> Description :</label>
+  <input type="text" id="description" name="description" value="{{question_update.description}}" ><br><br>
+
+      <label for="marks"> Marks :</label>
+  <input type="text" id="marks" name="marks" value="{{question_update.marks}}" ><br><br>
+
+
+
+  <button type="Update" class="submitrbtn">Update</button>
+</div>
+</form>
+
+</body>
+</html>

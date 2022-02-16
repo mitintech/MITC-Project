@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="POST">
+    {% csrf_token %}
+    <table border="2">
+        <tr>
+            <td><label >tables name:- </label></td>
+            <td> <input type="text" name="sop" ></td>
+        </tr>
+        <tr>
+            <td>
+                <label for="grp_id">group_id:</label>
+<!--                <select class="form-control"  id="group_id" name="group_id" style="">-->
+                <select name="grp_id" id="grp_id">
+                     <option> --Select-- </option>
+                     {% for i in group_insert %}
+                        <option value="{{i.group_id}}">{{i.group_name}}</option>
+                     {% endfor %}
+                 </select>
+            </td>
+        </tr>
+
+
+    </table>
+        <input type="submit" value="insert">
+
+</form>
+</body>
+</html>

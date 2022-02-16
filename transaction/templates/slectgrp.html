@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+                <div class="col-md-6">
+                    <div class="form" style="box-shadow:2px 4px 10px rgba(0,0,0,0.5);padding:20px;margin-top:50px;">
+<form method="get" action="/group/" id="yourform">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col">
+                                <label><h4>Group</h4></label>
+                                <select name="grp_id" class="form-control">
+                                    <option>--Group--</option>
+                                    {% for i in group %}
+                                        <option value="{{i.group_id}}">{{i.group_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label><h4>Class:</h4></label>
+                                <select name="cls_id" class="form-control">
+                                    <option>--Class--</option>
+                                    {% for i in cls %}
+                                        <option value="{{i.class_id}}">{{i.class_name}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                        <input type="submit" value="button" onclick="myfunc()" class="btn btn-primary mt-2">
+</form>
+                </div>
+                </div>
+
+                <div class="container" id="main" style="display:None;">
+                    <div class="row">
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-8">
+                        <table>
+                            <tr>
+                                <th>Sr No.</th>
+                                <th>SOP</th>
+                                <th>Problem Statement</th>
+                                <th>Show Code</th>
+                                <th>Show Output</th>
+                            </tr>
+                            {% for i in prac %}
+                                <tr>
+                                    <td>{{i.practicalquestions_id}}</td>
+                                    <td>{{i.sop}}</td>
+                                    <td>{{i.practical_questions}}</td>
+                                    <td><a href="{{i.showcode.url}}" class="btn btn-primary">Show Code</a></td>
+<!--                                    {% if  viewbook != "0" %}-->
+<!--                        {% for pdf in viewbook %}-->
+<!--                            <a href="{{ pdf.viewbook.url}}" id="button" class="btn btn-primary">Show Code</a>-->
+<!--                        {% endfor %}-->
+<!--                        {% for pdf in viewbook %}-->
+<!--                            <a href="{{ pdf.viewbook.url}}" id="button1" download="{{ pdf.viewbook.url}}" class="btn btn-info text-white" ><i class="fa fa-download" aria-hidden="true"></i>Download</a>-->
+<!--                        {% endfor %}-->
+<!--                    {%endif%}-->
+                                    <td><a href="{{i.output.url}}" class="btn btn-primary">Show Output</a></td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+                </div>
+
+
+
+            <script>
+<!--                function myfunc(){-->
+<!--                    var x=document.getElementById("main");-->
+<!--                    if(x.style.display=="none"){-->
+<!--                        x.style.display="block";-->
+<!--                    }-->
+<!--                    else{-->
+<!--                        x.style.display="none";-->
+<!--                    }-->
+<!--                }-->
+
+document.addEventListener("DOMContentLoaded", function(event) {
+<!--            document.createElement('form').submit.call(document.getElementById('main'));-->
+                    var x=document.getElementById("main");
+                    if(x.style.display=="none"){
+                        x.style.display="block";
+                    }
+                    else{
+                        x.style.display="none";
+                    }
+
+            });
+            </script>
+
+{% endblock %}
+

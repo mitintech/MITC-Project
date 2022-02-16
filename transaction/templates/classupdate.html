@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Update Class</title>
+  <style>
+          .submitrbtn:hover {
+            opacity: 1;
+                }
+
+                                .submitrbtn {
+                background-color: #333333;
+                color: #ffa500;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                opacity: 0.9;
+                }
+
+  </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MITC </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/frontpage/frontpage/">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="/logout_emp/logout_emp/"style="margin-left:850px;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+</head>
+<body>
+  <div class="container">
+    <h3 align="center"> Update Class </h3>
+    <hr>
+  <form align="center" method="POST" action="/classupdate/{{class_update.class_id}}">
+    {% csrf_token %}
+
+
+
+  <label for="class_name"> Class :</label>
+  <input type="text" id="class_name" name="class_name" placeholder="enter class name" value="{{ class_update.class_name }}"><br><br>
+
+      <label for="class_description"> Class Description:</label>
+  <input type="text" id="class_description" name="class_description" placeholder="enter class_description " value="{{ class_update.class_description }}"><br><br>
+
+      <label for="stream_id">Streamid:</label>
+    <select class="form-control" type="text" id="stream_id" name="stream_id" style="width:200px;margin:0 auto;">
+<!--<option value="{{stream_name}}">-->
+
+</option>
+{%for i in stream%}
+
+<option value="{{i.stream_id}}">{{i.stream_id}}</option>
+{%endfor%}
+</select><br>
+
+  <button type="submit" class="submitrbtn">submit</button>
+</div>
+</form>
+
+</body>
+</html>

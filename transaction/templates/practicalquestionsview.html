@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <thead class="thead-dark">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            sop
+        </th>
+        <th>
+            practical_questions
+        </th>
+        <th>
+            showcode
+        </th>
+        <th>
+            output
+        </th>
+        <th>
+            group id:
+        </th>
+        <th>
+            class id:
+        </th>
+        <th>
+            edit/delete
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {%for i in practicalquestions_view%}
+    <tr>
+        <td>
+            {{i.practicalquestions_id}}
+        </td>
+        <td>
+            {{i.sop}}
+        </td>
+
+        <td>
+            {{i.practical_questions}}
+        </td>
+        <td>
+            {{i.showcode}}
+        </td>
+        <td>
+            {{i.output}}
+        </td>
+        <td>
+            {{i.grp_id}}
+        </td>
+        <td>
+            {{i.cls_id}}
+        </td>
+        <td>
+            <a href="/practicalquestionsupdate/{{i.practicalquestions_id}}">
+                edit
+            </a>
+            <a href="/practicalquestionsdelete/{{i.practicalquestions_id}}">
+                delete
+            </a>
+        </td>
+    </tr>
+    {%endfor%}
+    </tbody>
+</table>
+</body>
+</html>

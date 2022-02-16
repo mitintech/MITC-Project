@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <style>
+          .submitrbtn:hover {
+            opacity: 1;
+                }
+
+                                .submitrbtn {
+                background-color: #333333;
+                color: #ffa500;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                opacity: 0.9;
+                }
+
+    </style>
+    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" style="color:#ffa500;" >MIT Software</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/frontpage/frontpage/">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="/logout_emp/logout_emp/"style="margin-left:850px;color:#ffa500;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<script>
+    function submitPoll(id){
+      document.getElementById("votebutton").disabled = true;
+      setTimeout(function(){document.getElementById("votebutton").disabled = false;},5000);
+  }
+</script>
+</br>
+<h3 align="center">Questions</h3></br>
+<table align="center" border="2" id="myTable">
+  <tr class="header">
+<!--    <th align="center" style="width:15%;">ID</th>-->
+    <th style="width:15%;">question_id</th>
+    <th style="width:15%;">sr_number</th>
+    <th style="width:15%;">stream_id</th>
+    <th style="width:15%;">class_id</th>
+    <th style="width:15%;">subject_id</th>
+    <th style="width:15%;">chapter_id</th>
+    <th style="width:15%;">typesofquestion_id</th>
+    <th style="width:15%;">question</th>
+    <th style="width:15%;">option1</th>
+    <th style="width:15%;">option2</th>
+    <th style="width:15%;">option3</th>
+    <th style="width:15%;">option4</th>
+    <th style="width:15%;">correct_answer</th>
+    <th style="width:15%;">description</th>
+    <th style="width:15%;">marks</th>
+    <th style="width:15%;">Delete </th>
+    <th style="width:15%;">Edit </th>
+  </tr>
+   {% for i in question_search %}
+    <tr>
+        <td>{{ i.question_id}}</td>
+        <td>{{ i.sr_number}}</td>
+        <td>{{ i.stream_id}}</td>
+        <td>{{ i.class_id}}</td>
+        <td>{{ i.subject_id}}</td>
+        <td>{{ i.chapter_id}}</td>
+        <td>{{ i.typesofquestion_id}}</td>
+        <td>{{ i.question}}</td>
+        <td>{{ i.option1}}</td>
+        <td>{{ i.option2}}</td>
+        <td>{{ i.option3}}</td>
+        <td>{{ i.option4}}</td>
+        <td>{{ i.correct_answer}}</td>
+        <td>{{ i.description}}</td>
+        <td>{{ i.marks}}</td>
+<!--        <td>{{ i.Delete }}</td>-->
+<!--        <td>{{ i.Edit }}</td>-->
+        <td><a href="/questiondelete/{{ i.question_id }}" class="btn btn-primary" >Delete question</a></td>
+        <td id="update"><a href="/questionupdate/{{ i.question_id }}" class="btn btn-primary">Edit question</a></td>
+<!--        <td><i class="glyphicon glyphicon-trash"></i></td>-->
+    </tr>
+     {% endfor %}
+</table>
+
+<script>
+function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}
+</script>
+</body>
+</html>

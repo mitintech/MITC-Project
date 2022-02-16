@@ -1,0 +1,267 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<label for="subject_id">Subject:</label>-->
+<!--    <select class="form-control" type="text" id="subject_id" name="subject_id" style="width:200px;margin:0 auto;">-->
+<!--<option>&#45;&#45;Select&#45;&#45;</option>-->
+<!--{%for i in subject_insert%}-->
+<!--<option >{{i.subject_search}}</option>-->
+<!--{%endfor%}-->
+<!--</select><br>-->
+
+<!--<label for="chapter_id">Chapter:</label>-->
+<!--    <select class="form-control" type="text" id="chapter_id" name="chapter_id" style="width:200px;margin:0 auto;">-->
+<!--<option>&#45;&#45;Select&#45;&#45;</option>-->
+<!--{%for i in chapter_insert%}-->
+<!--<option >{{i.chapter_search}}</option>-->
+<!--{%endfor%}-->
+<!--</select><br>-->
+
+<!--<label for="questions_id">Questions:</label>-->
+<!--    <select class="form-control" type="text" id="questions_id" name="questions_id" style="width:200px;margin:0 auto;">-->
+<!--<option>&#45;&#45;Select&#45;&#45;</option>-->
+<!--{%for i in questions_insert%}-->
+<!--<option >{{i.questions_search}}</option>-->
+<!--{%endfor%}-->
+<!--</select><br>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<STRONG xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">ebook solved question</STRONG></br> <br>
+<!--    <INPUT TYPE='radio' NAME='grp2' VALUE='City0' onClick="javascript:return yourfunction(1)">Subject-->
+<!--    <INPUT TYPE='radio' NAME='grp2' VALUE='City1' onClick="javascript:return yourfunction(2)">subject & series-->
+<!--    <INPUT TYPE='radio' NAME='grp2' VALUE='City2' onClick="javascript:return yourfunction(3)">chapter-->
+<br/>
+
+<form method="GET"  action="/searchview/"id="indexForm" data-courses-url="{% url 'ajax_load_courses' %}">
+
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+
+
+<!--<div id = "one" style = "display:none"> <br/>-->
+
+
+<!--&lt;!&ndash;    <form method="GET"  action="/searchview/" class="indexForm" data-courses-url="{% url 'ajax_load_courses' %}">&ndash;&gt;-->
+<!--&lt;!&ndash;                            {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;                            <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;                                <div class="col-lg-6 col-md-12">&ndash;&gt;-->
+
+<!--                                 <div class="form-group row">-->
+<!--         <label class="col-sm-2 col-form-label">SUBJECT:</label>-->
+<!--    <div class="col-sm-4">-->
+<!--        <select id="subjectid" name="subjectname" value="{{employee.subjectname}}"-->
+<!--    <option value=" ">Select Subject</option>-->
+<!--        {% for i in subject%}-->
+<!--    <option value="{{i.subjectid}}">{{i.subjectname}}</option>-->
+<!--        {% endfor %}-->
+<!--    </select><br><br>-->
+<!-- </div>-->
+<!--</div>-->
+<!--    <button type="submit" class="btn btn-primary mt-3">Create Pdf</button>-->
+
+<!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--&lt;!&ndash;<select name="school">&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="b1">&#45;&#45;SELECT&#45;&#45;</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="b2">black1</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="b3">black2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="b4">black3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;</select><br/>&ndash;&gt;-->
+
+<!--</div>-->
+
+
+<!--<div id = "two" style = "display:none"><br/>-->
+
+<!--&lt;!&ndash;   <form method="GET"  action="" class="indexForm" data-courses-url="{% url 'ajax_load_courses' %}">&ndash;&gt;-->
+<!--&lt;!&ndash;    {% csrf_token %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;        <div class="col-lg-6 col-md-12">&ndash;&gt;-->
+<!--            <select id="booksid" name="booksname"  value="{{employee.bookname}}" class="form-control ml-2   float-left"-->
+<!--                style="width:200px;" required>-->
+<!--                <option value="">Select Book</option>-->
+<!--                    {% for i in book%}-->
+<!--                    <option value="{{i.bookid}}">{{i.bookname}}</option>-->
+<!--                    {% endfor %}-->
+<!--            </select><br/><br/>-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;<select name="school">&ndash;&gt;-->
+<!--&lt;!&ndash;<option name="black" value="r1">&#45;&#45;SELECT&#45;&#45;</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r2">red2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r3">red3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r3">red4</option>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        <div class="col-lg-6 col-md-12">&ndash;&gt;-->
+<!--            <select name="bookseries" id="bookseries" class="form-control mr-2" required>-->
+<!--                style="width:200px;" required>-->
+<!--                <option value="">Select Book Series</option>-->
+<!--                    {% for i in subject %}-->
+<!--                    <option value="{{i.id}}">{{i.name}}</option>-->
+<!--                    {% endfor %}-->
+<!--            </select><br/><br/>-->
+<!--    <button type="submit" class="btn btn-primary mt-3">Create Pdf</button>-->
+<!--&lt;!&ndash;        </div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<select name="school">&ndash;&gt;-->
+<!--&lt;!&ndash;<option name="black" value="r1">&#45;&#45;SELECT&#45;&#45;</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r2">black2</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r3">black3</option>&ndash;&gt;-->
+<!--&lt;!&ndash;    <option name="black" value="r3">black4</option>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+<!--</div>-->
+
+
+<!--<div id = "three" style = "display:none"><br/>-->
+
+<!--      <form method="GET"  action="" class="indexForm" data-courses-url="{% url 'ajax_load_courses' %}">-->
+<!--    {% csrf_token %}-->
+<!--    <div class="row">-->
+<!--        <div class="col-lg-6 col-md-12">-->
+            <select id="subject_id" name="subject_name" value="{{employee.subject_name}}" class="form-control ml-2   float-left"
+                style="width:200px;" required>
+                <option value="">Select subject</option>
+                    {% for i in subject%}
+                    <option value="{{i.subject_id}}">{{i.subject_name}}</option>
+                    {% endfor %}
+            </select><br/><br/>
+<!--        </div>-->
+<!--<select name="school">-->
+<!--<option name="black" value="bl1">&#45;&#45;SELECT&#45;&#45;</option>-->
+<!--    <option name="black" value="bl2">black2</option>-->
+<!--    <option name="black" value="bl3">black3</option>-->
+<!--    <option name="black" value="bl3">black4</option>-->
+
+<!--</select>-->
+
+<!--          <div class="col-lg-6 col-md-12">-->
+            <select name="chapter" id="chapter"  value="{{employee.chapter_name}}" class="form-control mr-2" required>
+                style="width:200px;" required>
+                <option value="">Select chapter</option>
+                    {% for i in chapter %}
+                    <option value="{{i.chapter_id}}">{{i.chapter_name}}</option>
+                    {% endfor %}
+            </select><br/><br/>
+<!--        </div>-->
+
+<!--<select name="school">-->
+<!--<option name="black" value="bl1">&#45;&#45;SELECT&#45;&#45;</option>-->
+<!--    <option name="black" value="bl2">black2</option>-->
+<!--    <option name="black" value="bl3">black3</option>-->
+<!--    <option name="black" value="bl3">black4</option>-->
+
+<!--</select>-->
+
+    <select name="question" id="question_id" class="form-control">
+            <option value="">Select Question</option>
+            {% for i in question %}
+            <option value="{{i.id}}">{{i.question_type}}</option>
+            {% endfor %}
+        </select><br/><br/>
+    <button type="submit" class="btn btn-primary mt-3">load</button>
+
+<!--<select name="school">-->
+<!--<option name="black" value="bl1">&#45;&#45;SELECT&#45;&#45;</option>-->
+<!--    <option name="black" value="bl2">Red2</option>-->
+<!--    <option name="black" value="bl3">Red3</option>-->
+<!--    <option name="black" value="bl3">Red4</option>-->
+
+<!--</select>-->
+
+</div>
+
+        </div>
+        </div>
+    </form>
+<script>
+function yourfunction(radioid)
+{
+if(radioid == 1)
+{
+       document.getElementById('one').style.display = 'block';
+    document.getElementById('two').style.display = 'none';
+    document.getElementById('three').style.display = 'none';
+ }
+ else if(radioid == 2)
+{
+    document.getElementById('three').style.display = 'none';
+    document.getElementById('two').style.display = '';
+    document.getElementById('one').style.display = 'none';
+
+    document.getElementById('three').style.display = 'none';
+    document.getElementById('two').style.display = '';
+    document.getElementById('one').style.display = 'none';
+}
+ else if(radioid == 3)
+{
+
+    document.getElementById('three').style.display = '';
+    document.getElementById('two').style.display = 'none';
+    document.getElementById('one').style.display = 'none';
+
+    document.getElementById('three').style.display = '';
+    document.getElementById('two').style.display = 'none';
+    document.getElementById('one').style.display = 'none';
+
+    document.getElementById('three').style.display = '';
+    document.getElementById('two').style.display = 'none';
+    document.getElementById('one').style.display = 'none';
+}
+}
+ </script><script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script>
+    $("#subject").change(function () {
+      var url = $(".indexForm").attr("data-courses-url");  // get the url of the `load_courses` view
+      var subjectId = $(this).val();  // get the selected programming ID from the HTML input
+
+      $.ajax({                       // initialize an AJAX request
+        url: url,                    // set the url of the request (= localhost:8000/load-courses/)
+        data: {
+          'subject': subjectId       // add the programming id to the GET parameters
+        },
+        success: function (data) {   // `data` is the return of the `load_courses` view function
+          $("#bookseries").html(data);  // replace the contents of the course input with the data that came from the server
+        }
+      });
+
+    });
+
+  </script>
+
+
+
+
+<!--*****************-->
+<!--<script>-->
+<!--    $("#subject").change(function () {-->
+<!--      var url = $("#indexForm").attr("data-courses-url");  // get the url of the `load_courses` view-->
+<!--      var subjectId = $(this).val();  // get the selected programming ID from the HTML input-->
+
+<!--      $.ajax({                       // initialize an AJAX request-->
+<!--        url: url,                    // set the url of the request (= localhost:8000/load-courses/)-->
+<!--        data: {-->
+<!--          'subject': subjectId       // add the programming id to the GET parameters-->
+<!--        },-->
+<!--        success: function (data) {   // `data` is the return of the `load_courses` view function-->
+<!--          $("#bookseries").html(data);  // replace the contents of the course input with the data that came from the server-->
+<!--        }-->
+<!--      });-->
+
+<!--    });-->
+
+<!--    ************************-->
+
+

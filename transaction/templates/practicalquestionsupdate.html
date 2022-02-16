@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="POST" action="" enctype="multipart/form-data">
+    {%csrf_token%}
+    <tr>
+        <td>
+            <div border="2">
+                <input type="text" name="practicalquestions_id" id="practicalquestions_id" value="{{practicaltablesupdate.practicalquestions_id}}">
+            </div>
+        </td>
+        <td>
+            <div border="2">
+                <input type="text" name="sop" id="sop" value="{{practicaltablesupdate.sop}}">
+            </div>
+        </td>
+        <td>
+            <div border="2">
+                <input type="text" name="practical_questions" id="practical_questions" value="{{practicaltablesupdate.practical_questions}}">
+            </div>
+        </td>
+        <td>
+            <div border="2">
+                <input type="file" name="showcode" id="showcode" value="{{practicaltablesupdate.showcode}}">
+            </div>
+        </td>
+        <td>
+            <div border="2">
+                <input type="file" name="output" id="output" value="{{practicaltablesupdate.output}}">
+            </div>
+        </td>
+        <td>
+                <label for="grp_id">group_id:</label>
+                <select name="grp_id" id="grp_id">
+                     <option> --Select-- </option>
+                     {% for i in group_insert %}
+                        <option value="{{i.grp_id}}">{{i.group_name}}</option>
+                     {% endfor %}
+                 </select>
+        </td>
+        <br>
+         <td>
+                <label for="cls_id">class id:</label>
+                 <select name="cls_id" id="cls_id">
+                     <option> --Select-- </option>
+                     {% for i in class_insert %}
+                        <option value="{{i.class_id}}">{{i.class_name}}</option>
+                     {% endfor %}
+                 </select>
+         </td>
+
+    </tr>
+    <br>
+    <input type="submit" name="submit" id="submit" value="submit">
+</form>
+</body>
+</html>

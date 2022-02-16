@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Question</title>
+  <style>
+          .submitrbtn:hover {
+            opacity: 1;
+                }
+
+                                .submitrbtn {
+                background-color: #333333;
+                color: #ffa500;
+                padding: 12px 20px;
+                margin: 8px 0;
+                border: none;
+                cursor: pointer;
+                width: 20%;
+                opacity: 0.9;
+                }
+
+  </style>
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">MITC </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/frontpage/frontpage/">Home</a></li>
+      <li><a href="#">Contact</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="/logout_emp/logout_emp/"style="margin-left:850px;">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+</head>
+<body>
+  <div class="container">
+    <h3 align="center"> Add Type Of Question </h3>
+    <hr>
+  <form align="center" method="POST" action="/typesofquestioninsert/">
+    {% csrf_token %}
+
+
+
+  <label for="question_type"> Question Type:</label>
+  <input type="text" id="question_type" name="question_type" placeholder="enter question type" ><br><br>
+
+
+     <label for="stream_id">stream_id:</label>
+    <select class="form-control" type="text" id="stream_id" name="stream_id" style="width:200px;margin:0 auto;">
+<option>--Select--</option>
+{%for i in stream_insert%}
+<option value="{{i.stream_id}}">{{i.stream_name}}</option>
+{%endfor%}
+</select><br>
+
+     <label for="class_id">Class_id:</label>
+<select class="form-control" type="text" id="class_id" name="class_id" style="width:200px;margin:0 auto;">
+<option>--Select--</option>
+{%for i in class_insert%}
+<option value="{{i.class_id}}">{{i.class_name}}</option>
+{%endfor%}
+</select><br>
+
+      <label for="subject_id">Subjectid:</label>
+    <select class="form-control" type="text" id="subject_id" name="subject_id" style="width:200px;margin:0 auto;">
+<option>--Select--</option>
+{%for i in subject_insert%}
+<option value="{{i.subject_id}}">{{i.subject_name}}</option>
+{%endfor%}
+</select><br>
+
+       <label for="chapter_id">Chapterid:</label>
+    <select class="form-control" type="text" id="chapter_id" name="chapter_id" style="width:200px;margin:0 auto;">
+<option>--Select--</option>
+{%for i in chapter_insert%}
+<option value="{{i.chapter_id}}">{{i.chapter_name}}</option>
+{%endfor%}
+</select><br>
+  <button type="submit" class="submitrbtn">submit</button>
+</div>
+</form>
+
+</body>
+</html>
